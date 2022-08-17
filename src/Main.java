@@ -48,14 +48,22 @@ public class Main {
                     System.out.println("Введите текст для поиска:");
                     String query = scanner.nextLine();
                     String queryLower = query.toLowerCase();
-                    Iterator<String> it = shoppingCart.iterator();
-                    while (it.hasNext()) {
-                        String item = it.next();
+                    for (String item : shoppingCart) {
                         String itemLower = item.toLowerCase();
                         if (itemLower.contains(queryLower)) {
                             System.out.println((shoppingCart.indexOf(item) + 1) + ". " + item);
                         }
+
+                        
                     }
+                    //Iterator<String> it = shoppingCart.iterator();
+                    //while (it.hasNext()) {
+                        //String item = it.next();
+                        //String itemLower = item.toLowerCase();
+                        //if (itemLower.contains(queryLower)) {
+                            //System.out.println((shoppingCart.indexOf(item) + 1) + ". " + item);
+                        //}
+                    //}
                     break;
                 default:
                     System.out.println("Неккоректный ввод, введите число от 1 до 3 :)");
@@ -72,10 +80,19 @@ public class Main {
 
     }
     public static void shoppingList(List shoppingCart) {
-        Iterator<String> it = shoppingCart.iterator();
+        for (int i = 0; i < shoppingCart.size(); i++) {
+            String shopping = (String) shoppingCart.get(i);
+            System.out.println((i + 1) + ". " + shopping);
+        }
+
+            //System.out.println((shoppingCart.indexOf(shopping) + 1) + ". " + shopping);
+
+
+
+        /*Iterator<String> it = shoppingCart.iterator();
         while (it.hasNext()) {
             String shopping = it.next();
             System.out.println((shoppingCart.indexOf(shopping) + 1) + ". " + shopping);
-        }
+        } */
     }
 }
